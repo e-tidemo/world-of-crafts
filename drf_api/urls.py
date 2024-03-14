@@ -21,7 +21,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('', include('crafts_profiles.urls')),
     path('', include('crafts_posts.urls')),
-    #path('', include('comments.urls')),
-    path('', include('likes.urls')),
+    path('', include('crafts_comments.urls')),
+    path('', include('crafts_likes.urls')),
     #path('', include('followers.urls')),
 ]
