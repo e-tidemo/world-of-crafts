@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'crafts_posts',
     'crafts_likes',
     'crafts_comments',
+    'crafts_contact',
 ]
 
 MIDDLEWARE = [
@@ -134,6 +135,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+# Email settings
+# https://docs.djangoproject.com/en/5.0/topics/email/
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
