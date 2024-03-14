@@ -22,6 +22,6 @@ urlpatterns = [
     path('', include('crafts_profiles.urls')),
     path('', include('crafts_posts.urls')),
     #path('', include('comments.urls')),
-    #path('', include('likes.urls')),
+    path('', include('likes.urls')),
     #path('', include('followers.urls')),
 ]
