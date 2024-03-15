@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'crafts_profiles',
     'crafts_posts',
     'crafts_likes',
+    'crafts_followers',
     'crafts_comments',
     'crafts_contact',
     'crafts_panel',
