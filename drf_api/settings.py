@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'crafts_likes',
     'crafts_comments',
     'crafts_contact',
+    'crafts_panel',
 ]
 
 MIDDLEWARE = [
