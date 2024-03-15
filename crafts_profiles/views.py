@@ -2,6 +2,7 @@ from django.db.models import Count
 from rest_framework import generics, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import Profile
+from crafts_posts.models import Post
 from .serializers import ProfileSerializer
 from drf_api.permissions import IsOwnerOrReadOnly
 
@@ -31,6 +32,7 @@ class ProfileList(generics.ListAPIView):
         'following_count',
         'owner__following__created_at',
         'owner__followed__created_at',
+        'posts',
     ]
     
 class ProfileDetail(generics.RetrieveUpdateAPIView):
@@ -41,3 +43,12 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
         following_count=Count('owner__following', distinct=True),
     ).order_by('-created_at')
     serializer_class = ProfileSerializer
+    
+    def get_object(self):
+        # Get the profile object
+        obj = super().get_object()
+        
+        # Get the posts related to the profile's owner
+        obj.posts = Post.objects.filter(user=obj.owner)
+        
+        return obj
