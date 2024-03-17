@@ -15,3 +15,5 @@ I have followed some tutorials and I have used several resources to reach my goa
 [How to use the choices field oprion in Django](https://stackoverflow.com/questions/18676156/how-to-properly-use-the-choices-field-option-in-django)
 
 [How to send email with Django](https://www.youtube.com/watch?v=xNqnHmXIuzU)
+
+[Django REST-auth documentation on userdetail serializer](https://dj-rest-auth.readthedocs.io/en/latest/faq.html)
