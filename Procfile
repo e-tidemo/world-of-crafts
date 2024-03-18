@@ -1,3 +1,3 @@
-release: python manage.py makemigrations && python manage.py migrate
+release: python3 manage.py makemigrations && python3 manage.py migrate
 
 web: gunicorn drf_api.wsgi
