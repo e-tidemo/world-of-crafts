@@ -39,8 +39,12 @@ REST_FRAMEWORK = {
 if 'DEV' in os.environ:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'decor_knee_stall_475391',
+            'USERNAME': 'uu7w01oe1zf',
+            'PASSWORD': 'yPQRdm2AtaSK',
+            'HOST': 'ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech',
+            'PORT': '5432',
         }
     }
 else:
@@ -152,13 +156,6 @@ WSGI_APPLICATION = 'drf_api.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 
 # Password validation
