@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import re
 import dj_database_url
 
 if os.path.exists('env.py'):
@@ -77,9 +78,17 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 #DEBUG = 'DEV' in os.environ
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', os.environ.get('ALLOWED_HOST')]
+ALLOWED_HOSTS = ['localhost', 'world-of-craft-0e06bf8581a1.herokuapp.com']
 
+CORS_ALLOWED_ORIGIN_REGEXES = []
 
+if 'CLIENT_ORIGIN_DEV' in os.environ:
+    extracted_url = re.match(r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)
+    CORS_ALLOWED_ORIGIN_REGEXES.append(rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$")
+else:
+    CORS_ALLOWED_ORIGIN_REGEXES = [
+        'https://world-of-craft-0e06bf8581a1.herokuapp.com/',
+    ]
 # Application definition
 
 INSTALLED_APPS = [
