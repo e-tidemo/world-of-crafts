@@ -13,6 +13,7 @@ class Post(models.Model):
         upload_to='images/', default='../default_post_zzr2uj',
         blank=True
     )
+    alt_text = models.CharField(max_length=255, blank=False)
 
     class Meta:
         ordering = ['-created_at']
