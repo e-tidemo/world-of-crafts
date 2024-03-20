@@ -12,11 +12,16 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
-import re
+#import re
 import dj_database_url
 
 if os.path.exists('env.py'):
     import env
+
+database_url = os.environ.get("DATABASE_URL")
+parsed_db_config = dj_database_url.parse(database_url)
+
+print(parsed_db_config)
 
 CLOUDINARY_STORAGE = {
     'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
@@ -42,10 +47,11 @@ if 'DEV' in os.environ:
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'decor_knee_stall_475391',
-            'USERNAME': 'uu7w01oe1zf',
+            'USER': 'uu7w01oe1zf',
             'PASSWORD': 'yPQRdm2AtaSK',
             'HOST': 'ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech',
             'PORT': '5432',
+            'OPTIONS': {'sslmode': 'require'},
         }
     }
 else:

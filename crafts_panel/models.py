@@ -10,7 +10,7 @@ class Panel(models.Model):
     title = models.CharField(max_length=255, unique=True, blank=False)
     content = models.TextField(blank=True)
     image = models.ImageField(upload_to='images/', blank=True)
-    alt_text = models.CharField(max_length=255, blank=False)
+    alt_text = models.CharField(max_length=255, blank=False, default='image')
     video_url = models.URLField(blank=True)
 
     class Meta:
