@@ -137,7 +137,7 @@ if 'CLIENT_ORIGIN' in os.environ:
     ]
 else:
     CORS_ALLOWED_ORIGIN_REGEXES = [
-        r'https://frontend-woc-653e69cc17a6.herokuapp.com/'
+        rf'https://frontend-woc-653e69cc17a6.herokuapp.com/'
     ]
 
 CORS_ALLOW_CREDENTIALS = True
