@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import Profile
 from crafts_followers.models import Followers
 from crafts_posts.serializers import PostSerializer
+from .validators import username_validator
 
 class ProfileSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
@@ -33,3 +34,7 @@ class ProfileSerializer(serializers.ModelSerializer):
             'posts_count', 'follower_count', 'following_count',
             'posts',
         ]
+
+    def validate_username(self, value):
+        username_validator(value)  # Validate username using custom validator
+        return value
