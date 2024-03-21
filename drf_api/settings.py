@@ -219,6 +219,14 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True   
 ACCOUNT_USERNAME_REQUIRED = False
 
+AUTHENTICATION_BACKENDS = [
+    # For admin login
+    'django.contrib.auth.backends.ModelBackend',
+    
+    # Handles login by email
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
