@@ -37,7 +37,7 @@ class ProfileList(generics.ListAPIView):
     
 class ProfileDetail(generics.RetrieveUpdateAPIView):
     permission_classes = [IsOwnerOrReadOnly]
-    queryset = Profile.objects.annotate(
+    queryset = Profile.objects.prefetch_related('owner__post_set').annotate(
         posts_count=Count('owner__post', distinct=True),
         follower_count=Count('owner__followed', distinct=True),
         following_count=Count('owner__following', distinct=True),

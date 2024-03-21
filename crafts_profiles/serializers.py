@@ -34,6 +34,11 @@ class ProfileSerializer(serializers.ModelSerializer):
             'posts_count', 'follower_count', 'following_count',
             'posts',
         ]
+        
+    def get_object(self):
+        obj = super().get_object()
+        obj.posts = obj.owner.post_set.all()  # Retrieve user's posts
+        return obj
 
     def validate_username(self, value):
         username_validator(value)  # Validate username using custom validator
