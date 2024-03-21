@@ -4,7 +4,7 @@ The World of Craft website is an app for people who like DIY projects and handma
 ## ERD
 ![Entity Relationship Diagram](documentation/planning/erd-world-of-craft.png)
 
-
+I chose to overwrite the Django rest auth settings for signing in from username to email as I find it more difficult to remember a username than your email adress you signed up with. So to improve user experience, I changed the default setting of requiring username to requiring email at sign in.
 
 # Credits
 
