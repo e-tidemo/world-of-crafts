@@ -143,7 +143,7 @@ if 'CLIENT_ORIGIN' in os.environ:
         os.environ.get('CLIENT_ORIGIN')
     ]
 else:
-    CORS_ALLOWED_ORIGIN_REGEXES = [
+    CORS_ALLOWED_ORIGINS= [
         'https://frontend-woc-653e69cc17a6.herokuapp.com/'
     ]
 
