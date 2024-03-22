@@ -5,6 +5,7 @@ from .models import Profile
 from crafts_posts.models import Post
 from .serializers import ProfileSerializer
 from drf_api.permissions import IsOwnerOrReadOnly
+from django.shortcuts import get_object_or_404
 
 
 class ProfileList(generics.ListAPIView):
@@ -45,10 +46,11 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
     serializer_class = ProfileSerializer
     
     def get_object(self):
-        # Get the profile object
-        obj = super().get_object()
+        # Get the profile object based on the provided username
+        username = self.kwargs.get('username')
+        obj = get_object_or_404(Profile, owner__username=username)
         
-        # Get the posts related to the profile's owner
+        # Fetch related posts
         obj.posts = Post.objects.filter(user=obj.owner)
         
         return obj
