@@ -42,6 +42,7 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
     'DATETIME_FORMAT': '%d %b %Y',
 }
+
 if 'DEV' in os.environ:
     DATABASES = {
         'default': {
@@ -70,10 +71,6 @@ JWT_AUTH_COOKIE = 'my-app-auth'
 JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
 JWT_AUTH_SAMESITE = 'None'
 
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SAMESITE = 'None'
-SESSION_COOKIE_SAMESITE = 'None'
 
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZERS': 'drf_api.serializers.CurrentUserSerializer'
@@ -89,7 +86,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 #DEBUG = 'DEV' in os.environ
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'world-of-craft-0e06bf8581a1.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'world-of-craft-0e06bf8581a1.herokuapp.com']
 """
 CORS_ALLOWED_ORIGIN_REGEXES = []
 
