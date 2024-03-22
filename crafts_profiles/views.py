@@ -48,9 +48,9 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
     def get_object(self):
         # Get the profile object based on the provided username
         username = self.kwargs.get('username')
-        obj = get_object_or_404(Profile, owner__username=username)
+        profile = get_object_or_404(Profile, owner__username=username)
         
         # Fetch related posts
-        obj.posts = Post.objects.filter(user=obj.owner)
+        profile.posts = profile.owner.post_set.all() 
         
-        return obj
+        return profile
