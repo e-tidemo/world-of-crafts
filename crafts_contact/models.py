@@ -15,18 +15,13 @@ class Contact(models.Model):
     name = models.CharField(max_length=100, null=False, blank=False)
     email = models.EmailField(validators=[validate_email], blank=False)
     subject = models.CharField(max_length=100, null=False, blank=False)
-    message = models.TextField(min_length=5, max_length=2200, null=False, blank=False)
+    message = models.TextField(max_length=2200, null=False, blank=False, 
+                               validators=[MinLengthValidator(5)])
     ContactChoices = models.CharField(
         max_length=1,
         choices=ContactChoices.choices,
         default=ContactChoices.OTHER,
         null=False
-        )
-    
-    variable = models.TextField(
-        validators=[
-            MinLengthValidator(50, 'the field must contain at least 50 characters')
-            ]
         )
 
     def __str__(self):
