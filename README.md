@@ -19,3 +19,5 @@ I have followed some tutorials and I have used several resources to reach my goa
 [Django documentation on send_email()](https://docs.djangoproject.com/en/5.0/topics/email/)
 
 [Django REST-auth documentation on userdetail serializer](https://dj-rest-auth.readthedocs.io/en/latest/faq.html)
+
+[How to add minimum length to text fields in Django models](https://stackoverflow.com/questions/15845116/how-to-set-min-length-for-models-textfield)
