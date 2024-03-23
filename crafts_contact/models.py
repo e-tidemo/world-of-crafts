@@ -2,6 +2,7 @@ from django.db import models
 from django.core.mail import send_mail
 from django.conf import settings
 from django.core.validators import validate_email
+from django.core.validators import MinLengthValidator
 
 
 # Some help with choices field option was collected from https://stackoverflow.com/questions/18676156/how-to-properly-use-the-choices-field-option-in-django
@@ -22,6 +23,12 @@ class Contact(models.Model):
         null=False
         )
     
+    variable = models.TextField(
+        validators=[
+            MinLengthValidator(50, 'the field must contain at least 50 characters')
+            ]
+        )
+
     def __str__(self):
         return self.name + " - " + self.subject
     
