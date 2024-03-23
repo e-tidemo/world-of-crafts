@@ -11,14 +11,15 @@ class Contact(models.Model):
         BUSINESS = "2", "Report user"
         FEEDBACK = "3", "Feedback about website"
         OTHER = "4", "Other questions"
-    name = models.CharField(max_length=100, blank=False)
+    name = models.CharField(max_length=100, null=False, blank=False)
     email = models.EmailField(validators=[validate_email], blank=False)
-    subject = models.CharField(max_length=100, blank=False)
-    message = models.TextField(default='', blank=False)
+    subject = models.CharField(max_length=100, null=False, blank=False)
+    message = models.TextField(min_length=5, max_length=2200, null=False, blank=False)
     ContactChoices = models.CharField(
         max_length=1,
         choices=ContactChoices.choices,
-        default=ContactChoices.OTHER
+        default=ContactChoices.OTHER,
+        null=False
         )
     
     def __str__(self):
