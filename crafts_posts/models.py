@@ -24,10 +24,3 @@ class Post(models.Model):
     def clean(self):
         if not self.content and not self.image:
             raise ValidationError("At least one of 'content' or 'image' must be provided.")
-        
-class Like(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='likes', null=True, blank=True)
-
-    class Meta:
-        unique_together = ('user', 'post')
