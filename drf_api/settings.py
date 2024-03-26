@@ -19,7 +19,7 @@ if os.path.exists('env.py'):
     import env
 
 database_url = os.environ.get("DATABASE_URL")
-parsed_db_config = dj_database_url.parse(database_url)
+parsed_db_config = dj_database_url.parse(os.environ.get('DATABASE_URL'))
 
 print(parsed_db_config)
 
